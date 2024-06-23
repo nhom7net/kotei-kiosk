@@ -1,0 +1,18 @@
+<div class="container mt-4">
+    <h1>Danh sách bàn ăn</h1>
+    <button class="btn btn-primary mb-3" (click)="openAddDialog()">Thêm bàn</button>
+    <div class="row">
+      <div class="col-md-3" *ngFor="let table of tables">
+        <div class="card mb-3">
+          <div class="card-body"> 
+            <h5 class="card-title">Bàn {{ table.id }}</h5>
+            <p class="card-text">{{ table.description }}</p>
+            <button class="btn btn-warning mr-2" (click)="openEditDialog(table)">Sửa</button>
+            <button class="btn btn-danger mr-2" (click)="deleteTable(table.id)">Xóa</button>
+            <button class="btn btn-info" (click)="viewDetails(table)">Chi tiết</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
