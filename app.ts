@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow } from "electron";
 import * as path from "path";
 
 function createWindow() {
@@ -16,10 +16,6 @@ function createWindow() {
     mainWindow.maximize();
     mainWindow.show();
 }
-
-ipcMain.on('quit-app', (event, args) => {
-    app.quit();
-})
 
 app.whenReady().then(() => {
     createWindow();
