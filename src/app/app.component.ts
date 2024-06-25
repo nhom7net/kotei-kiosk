@@ -14,7 +14,6 @@ import { RouterOutlet } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faBars, faHamburger, faMap, faTicketAlt } from '@fortawesome/free-solid-svg-icons';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
-import { ipcRenderer } from 'electron';
 
 @Component({
   selector: 'app-root',
@@ -76,9 +75,5 @@ export class AppComponent implements OnInit, OnDestroy {
   open(content: TemplateRef<any>) {
     this.offcanvasService
       .open(content).result
-  }
-
-  appQuit() {
-    ipcRenderer.send('app-quit');
   }
 }
