@@ -4,7 +4,7 @@
   "compilerOptions": {
     "noImplicitAny": true,
     "baseUrl": ".",
-    "outDir": "./dist/out-tsc",
+    "outDir": "dist",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
@@ -14,18 +14,37 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "sourceMap": true,
-    "declaration": false,
+    "declaration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "useDefineForClassFields": false,
+    "preserveSymlinks": true,
     "lib": [
       "ES2022",
-      "dom"
+      "dom",
+      "ES5",
+      "ES6"
     ],
     "emitDecoratorMetadata": true,
+  },
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "ts-node": {
+    "esm": true,
+    "transpileOnly": true
+  },
+  "tsc-alias": {
+    "resolveFullPaths": true,
+    "verbose": false
+  },
+  "mikro-orm": {
+    "useTsNode": true,
+    "tsConfigPath": "./tsconfig.orm.json"
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -1,0 +1,45 @@
+<main>
+  <div class="table-container">
+    @for (table of tables; track tables) {
+    <a routerLink="">
+      <div class="table-item">
+        <div>
+          <img src="/assets/table.png" class="img-icon" />
+        </div>
+        <div>
+          <h3>Bàn {{ table.display_name }}</h3>
+          <span>{{ table.status ? "Có người" : "Trống" }}</span><br />
+        </div>
+      </div>
+    </a>
+    }
+  </div>
+</main>
+
+<div style="height: 124px"></div>
+
+<footer>
+  <button class="btn btn-primary px-5 py-4 fw-bold" (click)="open(content)">
+    + Thêm bàn
+  </button>
+</footer>
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Thêm bàn mới</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('cancelled')"></button>
+	</div>
+	<div class="modal-body">
+		<form>
+			<div class="mb-3">
+				<label for="name">Tên bàn</label>
+				<div class="input-group">
+          <input type="text" name="name" id="name" class="form-control">
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-secondary" (click)="modal.close('saved')">Save</button>
+	</div>
+</ng-template>
