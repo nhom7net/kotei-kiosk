@@ -11,8 +11,8 @@
     "lint": "eslint -c .eslintrc --ext .ts ./src",
     "app-build": "tsc && tsc-alias",
     "app-watch": "tsc -w",
-    "app-start": "pnpm run app-build && electron .",
-    "api-start": "pnpm run app-build && node dist/server/apiService.js",
+    "app-start": "npm run app-build && electron .",
+    "api-start": "npm run app-build && node dist/server/apiService.js",
     "start": "node start.cjs"
   },
   "type": "module",
