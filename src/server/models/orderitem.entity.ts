@@ -1,17 +1,15 @@
-import { Entity, OneToOne, PrimaryKey, Property } from '@mikro-orm/core';
-import { Orders } from './order.entity';
-import { Menu } from './menu.entity';
+import { Entity, OneToOne, Property, type Rel } from '@mikro-orm/core';
+import { Orders } from './order.entity.js';
+import { Menu } from './menu.entity.js';
+import { BaseEntity } from './base.entity.js';
 
 @Entity()
-export class OrderItems {
-    @PrimaryKey()
-    id!: number
+export class OrderItems extends BaseEntity {
+    @OneToOne()
+    order!: Rel<Orders>
 
-    @Property()
-    orderId!: number
-
-    @Property()
-    menuId!: number
+    @OneToOne()
+    menu!: Rel<Menu>
 
     @Property()
     quantity!: number

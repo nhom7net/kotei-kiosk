@@ -1,10 +1,8 @@
-import { Entity, OneToOne, PrimaryKey, Property } from '@mikro-orm/core';
+import { Entity, Property } from '@mikro-orm/core';
+import { BaseEntity } from './base.entity.js';
 
 @Entity()
-export class Vouchers {
-    @PrimaryKey()
-    id!: number
-
+export class Vouchers extends BaseEntity{
     @Property()
     code!: string
 

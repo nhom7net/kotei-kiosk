@@ -1,13 +1,11 @@
-import { Entity, OneToOne, PrimaryKey, Property } from '@mikro-orm/core';
-import { Table } from './table.entity';
+import { Entity, OneToOne, Property, type Rel } from '@mikro-orm/core';
+import { Table } from './table.entity.js';
+import { BaseEntity } from './base.entity.js';
 
 @Entity()
-export class Orders {
-    @PrimaryKey()
-    id!: number
-
-    @Property()
-    table!: number
+export class Orders extends BaseEntity {
+    @OneToOne()
+    table!: Rel<Table>
 
     @Property()
     startTime!: Date
