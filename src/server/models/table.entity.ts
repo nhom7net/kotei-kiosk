@@ -4,12 +4,12 @@ import { BaseEntity } from './base.entity.js';
 
 @Entity()
 export class Table extends BaseEntity {
-    @Property()
-    display_name!: string
+  @Property()
+  display_name!: string;
 
-    @Property()
-    status!: boolean
+  @Property()
+  status!: boolean;
 
-    @OneToOne()
-    order!: Rel<Orders> 
+  @OneToOne({ nullable: true })
+  order!: Rel<Orders>;
 }

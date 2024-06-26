@@ -1,11 +1,11 @@
 import { Migration } from '@mikro-orm/migrations';
 
-export class Migration20240626155302 extends Migration {
+export class Migration20240626164408 extends Migration {
 
   async up(): Promise<void> {
     this.addSql('create table `menu` (`id` integer not null primary key autoincrement, `created_at` datetime not null, `updated_at` datetime not null, `name` text not null, `price` integer not null);');
 
-    this.addSql('create table `table` (`id` integer not null primary key autoincrement, `created_at` datetime not null, `updated_at` datetime not null, `display_name` text not null, `status` integer not null, `order_id` integer not null, constraint `table_order_id_foreign` foreign key(`order_id`) references `orders`(`id`) on update cascade);');
+    this.addSql('create table `table` (`id` integer not null primary key autoincrement, `created_at` datetime not null, `updated_at` datetime not null, `display_name` text not null, `status` integer not null, `order_id` integer null, constraint `table_order_id_foreign` foreign key(`order_id`) references `orders`(`id`) on delete set null on update cascade);');
     this.addSql('create unique index `table_order_id_unique` on `table` (`order_id`);');
 
     this.addSql('create table `orders` (`id` integer not null primary key autoincrement, `created_at` datetime not null, `updated_at` datetime not null, `table_id` integer not null, `start_time` datetime not null, constraint `orders_table_id_foreign` foreign key(`table_id`) references `table`(`id`) on update cascade);');

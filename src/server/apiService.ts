@@ -38,6 +38,7 @@ export const init = async () => {
   DI.table = DI.em.getRepository(Table);
 
   apiService.use(express.json());
+  apiService.use(express.urlencoded({ extended: true }));
   apiService.use((req, res, next) => RequestContext.create(DI.orm.em, next));
   apiService.get('/', (req, res) =>
     res.json({

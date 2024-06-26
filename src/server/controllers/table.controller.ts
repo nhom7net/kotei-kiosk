@@ -5,48 +5,28 @@ import { QueryOrder } from '@mikro-orm/core';
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  const tables = DI.table.findAll({
+router.get('/', async (req, res) => {
+  const tables = await DI.table.findAll({
     orderBy: { display_name: QueryOrder.DESC },
   });
   res.json(tables);
 });
 
-router.get('/:id', async (req, res) => {
-  try {
-    const author = await DI.authors.findOneOrFail(req.params.id, {
-      populate: ['books'],
-    });
-
-    res.json(author);
-  } catch (e: any) {
-    return res.status(400).json({ message: e.message });
-  }
-});
-
-router.post('/', async (req, res) => {
-  if (!req.body.name || !req.body.email) {
+router.post('/create', async (req, res) => {
+  if (!req.body.name) {
     res.status(400);
-    return res.json({ message: 'One of `name, email` is missing' });
+    return res.json({ message: 'Need table display name!' });
   }
 
   try {
-    const author = DI.authors.create(req.body);
+    const table = DI.table.create({
+      display_name: req.body.name,
+      status: true,
+      order: null,
+    });
     await DI.em.flush();
 
-    res.json(author);
-  } catch (e: any) {
-    return res.status(400).json({ message: e.message });
-  }
-});
-
-router.put('/:id', async (req, res) => {
-  try {
-    const author = await DI.authors.findOneOrFail(req.params.id);
-    wrap(author).assign(req.body);
-    await DI.em.flush();
-
-    res.json(author);
+    res.json(table);
   } catch (e: any) {
     return res.status(400).json({ message: e.message });
   }
