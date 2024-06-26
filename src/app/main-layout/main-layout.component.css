@@ -1,0 +1,107 @@
+/* Thiết lập mặc định cho body và phần tử */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header h1 {
+  text-align: left;
+}
+
+header {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+.table-list {
+  margin-bottom: 20px;
+}
+
+.table-list h2 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+}
+
+footer {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+}
+
+
+.add-table-button:hover {
+  background-color: #0e41cf;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #f0f0f0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h2 {
+  margin: 0; /* Xóa margin mặc định của h2 */
+}
+
+.add-table-button {
+  padding: 20px 25px;
+  font-size: 2em;
+  background-color: #772ce7;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+
+.add-table-button:hover {
+  background-color: #0e41cf;
+}
+.table-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.table-item {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin: 10px;
+  width: 250px; /* Đảm bảo mỗi item có cùng chiều rộng */
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box; /* Đảm bảo padding và border không làm tăng kích thước của phần tử */
+}
+
+.table-item:hover {
+  background-color: #e0e0e0;
+}

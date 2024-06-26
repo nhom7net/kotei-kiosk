@@ -1,0 +1,27 @@
+<title>KioskUI</title>
+<body>
+    <header>
+        <h1>Chọn bàn</h1>
+    </header>
+    <main>
+        <section class="table-list">
+            <h2>Danh sách các bàn ăn</h2>
+            <ul>
+              @for (table of tables; track tables) {
+                <div class = "table-item">
+                  <p>{{table.display_number}}</p>
+                  <p>Trạng thái: {{table.status}}</p>
+                  <p>Số món: {{table.items}}</p>
+                  <p>Tổng tiền: {{table.total}}</p>
+                </div>
+              }
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <h2>Bấm vào 1 bàn để xem hóa đơn và quản lý bàn đó</h2>
+        <button class="add-table-button" (click)="addTable()">+Thêm bàn</button>
+    </footer>
+</body>
+
+

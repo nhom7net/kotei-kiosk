@@ -1,0 +1,66 @@
+b<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="menu-edit">
+      <div class="template-screen2">
+        <div class="fader12"></div>
+        <div class="fader22"></div>
+        <img class="menu-icon2" alt="" src="./public/menu.svg" />
+      </div>
+      <div class="bm-vo-mt1">Bấm vào một món để chỉnh sửa</div>
+      <b class="thc-n">Thực đơn</b>
+      <div class="menu1">
+        <div class="menu-item">
+            <div class="component-11">
+            @for ( MenuItem of MenuItems; track $index) {
+             <div class="m-xo-b-47500-container6">
+                <p class="p2">{{MenuItem.name}}</p>
+                <p class="p2">{{MenuItem.price}}</p>
+             </div>
+            }
+            </div>
+        </div>
+      </div>
+      <div class="detail-edit">
+        <div class="detail-edit-child"></div>
+        <div class="input">
+          <div class="gi-tin-vn">Tên món</div>
+          <input type = "string" class="m-xo-b13" placeholder="Tên món ăn" >
+        </div>
+        <div class="input1">
+          <div class="gi-tin-vn">Giá tiền (VNĐ)</div>
+          <input type = "string" class="m-xo-b13" placeholder="Giá tiền" >
+        </div>
+        <div class="input2">
+          <div class="gi-tin-vn">Giảm giá</div>
+          <input type = "string" class="m-xo-b13" placeholder="Giảm..." >
+          <div class="vnd13">
+            <select class="a">
+                <option>Giảm 5%</option>
+                <option>Giảm 10%</option>
+                <option>Giảm 15%</option>
+                <option>Giảm 20%</option>
+            </select>
+        </div>
+        </div>
+      </div>
+      <div class="save-change">
+        <button class="lu-sa-i"  (click)="saveMenuItem()">Lưu sửa đổi</button>
+      </div>
+      <div class="add-new-item">
+        <button class="lu-sa-i" (click)="addMenuItem()">+ Thêm món mới</button>
+      </div>
+      <div class="delete-item">
+        <button class="lu-sa-i" (click)="addMenuItem()">Xoá món</button>
+      </div>
+    </div>
+  </body>
+</html>
