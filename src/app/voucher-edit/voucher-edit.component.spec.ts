@@ -13,7 +13,7 @@ describe('VoucherEditComponent', () => {
     .compileComponents();
     
     fixture = TestBed.createComponent(VoucherEditComponent);
-    component = fixture.componentInstance;
+    component = fixture.componentInstance;  
     fixture.detectChanges();
   });
 

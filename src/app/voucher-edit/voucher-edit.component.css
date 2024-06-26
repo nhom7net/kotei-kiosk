@@ -200,8 +200,8 @@ body {
   
     /* Paddings */
     --padding-base: 16px;
-  
+   
     /* Border radiuses */
-    --br-5xs: 8px;
+    --br-5xs: 8px; 
     --br-xl: 20px;
   }
