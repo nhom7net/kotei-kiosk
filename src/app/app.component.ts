@@ -10,7 +10,12 @@ import {
   ViewChild,
   inject,
 } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {
+  NavigationEnd,
+  Router,
+  RouterLink,
+  RouterOutlet,
+} from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faBars,
@@ -23,7 +28,7 @@ import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FontAwesomeModule],
+  imports: [RouterOutlet, FontAwesomeModule, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -47,7 +52,15 @@ export class AppComponent implements OnInit, OnDestroy {
   @ViewChild('date')
   dateNow!: ElementRef;
 
-  constructor(private zone: NgZone, private renderer: Renderer2) {}
+  constructor(
+    private zone: NgZone,
+    private renderer: Renderer2,
+    private router: Router
+  ) {
+    this.router.events.subscribe((e) => {
+      if (e instanceof NavigationEnd) this.offcanvasService.dismiss();
+    });
+  }
 
   async ngOnInit() {
     this.displayTime();

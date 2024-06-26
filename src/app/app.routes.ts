@@ -1,3 +1,7 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import { TableViewComponent } from './table-view/table-view.component';
+
+export const routes: Routes = [
+    { path: '', component: TableViewComponent }
+];

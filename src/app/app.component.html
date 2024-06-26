@@ -1,6 +1,6 @@
 <!-- Navbar -->
 <nav
-  class="navbar navbar-expand-xxl bg-light p-4 d-flex justify-content-between"
+  class="position-fixed w-100 top-0 navbar navbar-expand-xxl bg-light p-4 d-flex justify-content-between"
 >
   <div>
     <button class="border-0 bg-transparent" (click)="open(routerDrawer)">
@@ -22,7 +22,7 @@
   <div class="offcanvas-body">
     <ul class="nav flex-column">
       <li class="nav-link text-black border-bottom border-black py-4">
-        <a href="" class="text-black text-decoration-none">
+        <a routerLink="/" class="text-black text-decoration-none">
           <fa-icon [icon]="navTable" size="lg" class="px-3" />
           <span>Bàn ăn</span>
         </a>
@@ -42,5 +42,8 @@
     </ul>
   </div>
 </ng-template>
+
+<!-- push content down-->
+<div style="height: 100px"></div>
 
 <router-outlet />
