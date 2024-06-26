@@ -12,7 +12,12 @@ import {
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faHamburger, faMap, faTicketAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBars,
+  faHamburger,
+  faMap,
+  faTicketAlt,
+} from '@fortawesome/free-solid-svg-icons';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -24,7 +29,7 @@ import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'rotei-kiosk';
-  
+
   // icons
   menuIcon = faBars;
   navTable = faHamburger;
@@ -44,11 +49,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(private zone: NgZone, private renderer: Renderer2) {}
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.displayTime();
   }
 
-  ngOnDestroy(): void {
+  async ngOnDestroy() {
     clearInterval(this.interval);
   }
 
@@ -73,7 +78,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   open(content: TemplateRef<any>) {
-    this.offcanvasService
-      .open(content).result
+    this.offcanvasService.open(content).result;
   }
 }

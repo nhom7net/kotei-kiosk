@@ -1,5 +1,7 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-xxl navbar-light bg-light p-4">
+<nav
+  class="navbar navbar-expand-xxl bg-light p-4 d-flex justify-content-between"
+>
   <div>
     <button class="border-0 bg-transparent" (click)="open(routerDrawer)">
       <fa-icon [icon]="menuIcon" size="2x" />
@@ -21,19 +23,19 @@
     <ul class="nav flex-column">
       <li class="nav-link text-black border-bottom border-black py-4">
         <a href="" class="text-black text-decoration-none">
-          <fa-icon [icon]="navTable" size="lg" class="px-3"/>
+          <fa-icon [icon]="navTable" size="lg" class="px-3" />
           <span>Bàn ăn</span>
         </a>
       </li>
       <li class="nav-link border-bottom border-black py-4">
         <a href="" class="text-black text-decoration-none">
-          <fa-icon [icon]="navMenu" size="lg" class="px-3"/>
+          <fa-icon [icon]="navMenu" size="lg" class="px-3" />
           <span>Thực đơn</span>
         </a>
       </li>
       <li class="nav-link text-black border-bottom border-black py-4">
         <a href="" class="text-black text-decoration-none">
-          <fa-icon [icon]="navVoucher" size="lg" class="px-3"/>
+          <fa-icon [icon]="navVoucher" size="lg" class="px-3" />
           <span>Mã giảm giá</span>
         </a>
       </li>

@@ -1,17 +1,18 @@
 {
   "name": "rotei-kiosk",
   "version": "0.0.0",
-  "main": "./dist/out-tsc/app.js",
+  "main": "./dist/uxclient.js",
   "scripts": {
     "ng": "ng",
-    "build": "ng build",
+    "build": "tsc && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:rotei-kiosk": "node dist/rotei-kiosk/server/server.mjs",
     "lint": "eslint -c .eslintrc --ext .ts ./src",
-    "app-build": "tsc",
+    "app-build": "tsc && tsc-alias",
     "app-watch": "tsc -w",
     "app-start": "pnpm run app-build && electron .",
+    "api-start": "pnpm run app-build && node dist/server/apiService.js",
     "start": "node start.cjs"
   },
   "type": "module",
@@ -31,6 +32,10 @@
     "@fortawesome/fontawesome-svg-core": "~1.2.36",
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@mikro-orm/better-sqlite": "^6.2.9",
+    "@mikro-orm/core": "^6.2.9",
+    "@mikro-orm/migrations": "^6.2.9",
+    "@mikro-orm/reflection": "^6.2.9",
     "@ng-bootstrap/ng-bootstrap": "16.0.0",
     "@popperjs/core": "^2.11.8",
     "better-sqlite3": "9.6.0",
@@ -39,7 +44,6 @@
     "reflect-metadata": "^0.2.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "typeorm": "^0.3.20",
     "wait-on": "^7.2.0",
     "zone.js": "~0.14.3"
   },
@@ -48,7 +52,8 @@
     "@angular/cli": "^17.2.0",
     "@angular/compiler-cli": "^17.2.0",
     "@angular/localize": "^17.2.0",
-    "@types/express": "^4.17.17",
+    "@mikro-orm/cli": "^6.2.9",
+    "@types/express": "^4.17.21",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.19.34",
     "concurrently": "^8.2.2",
@@ -59,6 +64,11 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.10",
     "typescript": "~5.3.2"
+  },
+  "mikro-orm": {
+    "useTsNode": true
   }
 }
