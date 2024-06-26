@@ -1,21 +1,22 @@
 import { Component, Input, OnInit, TemplateRef, inject } from '@angular/core';
 import { TableDetailComponent } from '../table-detail/table-detail.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 interface Table {
   id: number;
   display_name: string;
-  status: string;
+  status: boolean;
 }
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [TableDetailComponent],
+  imports: [TableDetailComponent, FormsModule],
   templateUrl: './table-view.component.html',
   styleUrl: './table-view.component.css',
 })
 export class TableViewComponent implements OnInit {
-  @Input() inputData: any;
+  @Input() name: any;
   private modalService = inject(NgbModal);
 	closeResult = '';
 
@@ -33,6 +34,13 @@ export class TableViewComponent implements OnInit {
 		this.modalService.open(content).result.then(
 			(result) => {
 				this.closeResult = `Closed with: ${result}`;
+        let a: HttpParams = new HttpParams().set('name', this.name);
+        this.http.post('http://localhost:6900/table/create', a).subscribe((data: any) => {
+          console.info("i tried");
+
+          // not very angular-ish, is it?
+          window.location.reload();
+        });
 			},
 			(reason) => {
 				this.closeResult = `Dismissed`;

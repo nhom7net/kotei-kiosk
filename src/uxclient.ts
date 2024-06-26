@@ -6,7 +6,8 @@ function createWindow() {
 
     const mainWindow = new BrowserWindow({
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            webSecurity: false
         },
         show: false
     });

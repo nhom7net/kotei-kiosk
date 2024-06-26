@@ -182,7 +182,6 @@
   position: absolute;
   top: 46px;
   left: 547px;
-  
 }
 .input-child2 {
   position: absolute;
@@ -208,7 +207,6 @@
   left: 17px;
   width: 683px;
   height: 80px;
-  
 }
 .detail-edit {
   top: 113px;
@@ -223,7 +221,6 @@
 }
 .save-change {
   left: 1229px;
-  
 }
 .add-new-item,
 .delete-item,
@@ -240,11 +237,9 @@
   padding: 0 var(--padding-base);
   box-sizing: border-box;
   text-align: center;
-
 }
 .add-new-item {
   left: 28px;
-  
 }
 .delete-item {
   left: 772px;
@@ -259,30 +254,28 @@
   font-family: var(--font-inter);
 }
 
-
 body {
-    margin: 0;
-    line-height: normal;
-  }
-  
-  :root {
-    /* fonts */
-    --font-inter: Inter;
-  
-    /* font sizes */
-    --font-size-5xl: 24px;
-    --font-size-23xl: 42px;
-  
-    /* Colors */
-    --color-black: #000;
-    --color-dodgerblue: #0085ff;
-    --color-white: #fff;
-  
-    /* Paddings */
-    --padding-base: 16px;
-  
-    /* Border radiuses */
-    --br-5xs: 8px;
-    --br-xl: 20px;
-  }
-  
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-inter: Inter;
+
+  /* font sizes */
+  --font-size-5xl: 24px;
+  --font-size-23xl: 42px;
+
+  /* Colors */
+  --color-black: #000;
+  --color-dodgerblue: #0085ff;
+  --color-white: #fff;
+
+  /* Paddings */
+  --padding-base: 16px;
+
+  /* Border radiuses */
+  --br-5xs: 8px;
+  --br-xl: 20px;
+}

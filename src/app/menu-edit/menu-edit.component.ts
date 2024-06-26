@@ -7,7 +7,6 @@ interface MenuItem {
   category: string; 
 }
 
-
 @Component({
   selector: 'app-menu-edit',
   standalone: true,
@@ -15,6 +14,7 @@ interface MenuItem {
   templateUrl: './menu-edit.component.html',
   styleUrl: './menu-edit.component.css'
 })
+
 export class MenuEditComponent {
   MenuItems: MenuItem[] = [
     { id: 1, name: 'Rau muống xào tỏi', price: 20000, category:'Món chính'},
