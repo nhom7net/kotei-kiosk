@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="detailed-receipt">
+      <div class="template-screen1">
+        <div class="fader11"></div>
+        <div class="fader21"></div>
+        <img class="menu-icon1" alt="" src="./public/menu.svg" />
+      </div>
+      <div class="payment">
+        <button class="thanh-ton">Thanh toán </button>
+      </div>
+      <div class="rectangle-div">
+        <table>
+          <th>Tên món</th>
+          <th>Số lượng</th>
+          <th>Giá tiền</th>
+        @for (OrderItem of OrderItems;track OrderItems) {
+          <tbody>
+           <tr>
+              <td>{{OrderItem.menu_item_id}}</td>
+              <td>{{OrderItem.quantity}}</td>
+              <td>{{OrderItem.price}} VND</td>
+            </tr>
+          </tbody>
+        }
+        </table>
+        
+      </div>
+      <b class="bn-03">Bàn 03</b>
+      <div class="menu">
+        <div class="menu-child"> 
+          <div class="component-1">
+            @for ( MenuItem of MenuItems; track $index) {
+            <div class="m-xo-b-47500-container">
+              <p class="vnd">{{MenuItem.name}}</p>
+              <p class="vnd">{{MenuItem.price}} VND</p>
+              <button class="btn">+</button>
+            </div>
+          }
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="tng-tin-47500-container">
+        <p class="text">Tổng tiền</p>
+        <p class="vnd6">{{ totalOrderPrice}} VND</p>
+      </div>
+  </body>
+</html>
