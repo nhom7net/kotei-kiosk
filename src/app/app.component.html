@@ -1,1 +1,49 @@
-<app-menu-edit></app-menu-edit>
+<!-- Navbar -->
+<nav
+  class="position-fixed w-100 top-0 navbar navbar-expand-xxl bg-light p-4 d-flex justify-content-between"
+>
+  <div>
+    <button class="border-0 bg-transparent" (click)="open(routerDrawer)">
+      <fa-icon [icon]="menuIcon" size="2x" />
+    </button>
+  </div>
+  <div class="text-end">
+    <span #time></span>
+    <br />
+    <span #date></span>
+  </div>
+</nav>
+
+<!-- Left side drawer -->
+<ng-template #routerDrawer let-offcanvas>
+  <div class="offcanvas-header">
+    <button class="btn-close" (click)="offcanvas.dismiss()"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="nav flex-column">
+      <li class="nav-link text-black border-bottom border-black py-4">
+        <a routerLink="/" class="text-black text-decoration-none">
+          <fa-icon [icon]="navTable" size="lg" class="px-3" />
+          <span>Bàn ăn</span>
+        </a>
+      </li>
+      <li class="nav-link border-bottom border-black py-4">
+        <a href="" class="text-black text-decoration-none">
+          <fa-icon [icon]="navMenu" size="lg" class="px-3" />
+          <span>Thực đơn</span>
+        </a>
+      </li>
+      <li class="nav-link text-black border-bottom border-black py-4">
+        <a href="" class="text-black text-decoration-none">
+          <fa-icon [icon]="navVoucher" size="lg" class="px-3" />
+          <span>Mã giảm giá</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</ng-template>
+
+<!-- push content down-->
+<div style="height: 100px"></div>
+
+<router-outlet />

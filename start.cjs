@@ -1,12 +1,16 @@
-const concurrently = require("concurrently");
+let concurrently = require("concurrently");
 
 concurrently(
-    [
-        { command: "ng serve", name: "Server", prefix: "Server" },
-        { command: "wait-on http://localhost:4200 && npm run app-start", name: "UX", prefix: "UX" },
-    ],
+  [
+    { command: "ng serve", name: "AngularService" },
+    { command: "npm run api-start", name: "APIService" },
     {
-        killOthers: ["failure", "success"],
-        restartTries: 3,
-    }
+      command:
+        "wait-on http://localhost:4200 && wait-on http://localhost:6900 && npm run app-start",
+      name: "UXClientService",
+    },
+  ],
+  {
+    killOthers: ["failure", "success"],
+  }
 );

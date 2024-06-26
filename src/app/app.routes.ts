@@ -4,12 +4,8 @@ import path from 'path';
 import { TableDetailComponent } from './table-detail/table-detail.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 
+import { TableViewComponent } from './table-view/table-view.component';
+
 export const routes: Routes = [
-    {
-        path:'table/:id', 
-        component: TableDetailComponent,
-    },
-    {
-        path: 'main-layout', component: MainLayoutComponent,
-    }
+    { path: '', component: TableViewComponent }
 ];

@@ -25,7 +25,7 @@ interface OrderItem {
   templateUrl: './table-detail.component.html',
   styleUrl: './table-detail.component.css'
 })
-export class TableDetailComponent {
+export class TableDetailComponent implements OnInit{
   
   MenuItems: MenuItem[] = [
     { id: 1, name: 'Rau muống xào tỏi', price: 20000, category:'Món chính'},
