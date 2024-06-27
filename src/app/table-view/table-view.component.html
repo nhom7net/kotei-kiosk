@@ -1,7 +1,7 @@
 <main>
   <div class="table-container">
     @for (table of tables; track tables) {
-    <a routerLink="">
+    <a [routerLink]="['/table', table.id]" class="text-black text-decoration-none">
       <div class="table-item">
         <div>
           <img src="/assets/table.png" class="img-icon" />

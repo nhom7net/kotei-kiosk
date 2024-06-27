@@ -3,6 +3,7 @@ import { TableDetailComponent } from '../table-detail/table-detail.component';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 interface Table {
   id: number;
   display_name: string;
@@ -11,18 +12,19 @@ interface Table {
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [TableDetailComponent, FormsModule],
+  imports: [TableDetailComponent, FormsModule, RouterLink],
   templateUrl: './table-view.component.html',
   styleUrl: './table-view.component.css',
 })
 export class TableViewComponent implements OnInit {
   @Input() name: any;
   private modalService = inject(NgbModal);
+  private route = inject(ActivatedRoute);
 	closeResult = '';
 
   tables: Table[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.http.get('http://localhost:6900/table').subscribe((data: any) => {
@@ -37,9 +39,8 @@ export class TableViewComponent implements OnInit {
         let a: HttpParams = new HttpParams().set('name', this.name);
         this.http.post('http://localhost:6900/table/create', a).subscribe((data: any) => {
           console.info("i tried");
-
-          // not very angular-ish, is it?
-          window.location.reload();
+          this.router.navigated = false;
+          this.router.navigate([this.router.url]);
         });
 			},
 			(reason) => {

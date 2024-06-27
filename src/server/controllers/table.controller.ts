@@ -12,6 +12,16 @@ router.get('/', async (req, res) => {
   res.json(tables);
 });
 
+router.get('/details/:id', async (req, res) => {
+  const table = await DI.table.findOne({ id: req.params.id });
+  if (!table) {
+    res.status(400);
+    return res.json({ message: 'Table not found!' });
+  }
+
+  res.json(table);
+});
+
 router.post('/create', async (req, res) => {
   if (!req.body.name) {
     res.status(400);

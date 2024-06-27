@@ -5,6 +5,6 @@ import { MenuEditComponent } from './menu-edit/menu-edit.component';
 
 export const routes: Routes = [
     { path: '', component: TableViewComponent },
-    { path: 'table/details', component: TableDetailComponent },
+    { path: 'table/:id', component: TableDetailComponent },
     { path: 'menu', component: MenuEditComponent }
 ];

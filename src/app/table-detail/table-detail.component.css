@@ -39,20 +39,18 @@
   text-align: right;
 }
 .payment,
-
 .thanh-ton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #007bff; /* Màu nền của nút */
-    color: #ffffff; /* Màu chữ của nút */
-    font-size: 16px; /* Kích thước chữ */
-    border: none; /* Bỏ viền */
-    border-radius: 4px; /* Bo góc nút */
-    cursor: pointer; /* Con trỏ chuột khi rê vào nút */
-    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền */
-  }
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007bff; /* Màu nền của nút */
+  color: #ffffff; /* Màu chữ của nút */
+  font-size: 16px; /* Kích thước chữ */
+  border: none; /* Bỏ viền */
+  border-radius: 4px; /* Bo góc nút */
+  cursor: pointer; /* Con trỏ chuột khi rê vào nút */
+  transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền */
+}
 
 .payment {
   position: absolute;
@@ -99,7 +97,6 @@
   top: 120px;
 }
 
-
 .rectangle-div {
   overflow: auto;
   position: absolute;
@@ -112,20 +109,22 @@
   box-sizing: border-box;
 }
 
-table,tbody {
+table,
+tbody {
   overflow: auto;
   width: 660px;
   border-collapse: collapse;
   border: 1px solid black;
 }
 
-th, td,tr {
+th,
+td,
+tr {
   border: 1px solid black; /* Đường kẻ giữa các cột và hàng */
-      padding: 8px;
-      text-align: left;
-      border-collapse: collapse;
+  padding: 8px;
+  text-align: left;
+  border-collapse: collapse;
 }
-
 
 .bn-03 {
   position: absolute;
@@ -157,8 +156,6 @@ th, td,tr {
   margin-top: 10px;
 }
 
-
-
 .m-xo-b-47500-container {
   position: relative;
   width: 670px;
@@ -169,14 +166,6 @@ th, td,tr {
   padding: 10px;
   margin-top: 10px;
   margin-left: 10px;
-}
-
-.btn {
-  background-color: #0085ff;
-  border-radius: 15px; /* Bo tròn góc */
-  padding: 10px 20px; /* Khoảng đệm */
-  font-size: 16px; /* Kích thước chữ */
-  cursor: pointer;
 }
 
 .image-1-icon {
@@ -247,33 +236,18 @@ th, td,tr {
   font-family: var(--font-inter);
 }
 
-
-body {
-  margin: 0;
-  line-height: normal;
-}
-
-:root {
-  /* fonts */
-  --font-inter: Inter;
-
-  /* font sizes */
-  --font-size-5xl: 24px;
-  --font-size-23xl: 42px;
-
-  /* Colors */
-  --color-black: #000;
-  --color-dodgerblue: #0085ff;
-  --color-white: #fff;
-
-  /* Paddings */
-  --padding-base: 16px;
-
-  /* Border radiuses */
-  --br-5xs: 8px;
-  --br-xl: 20px;
-}
-
 .text {
   font-size: 25px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #f0f0f0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
