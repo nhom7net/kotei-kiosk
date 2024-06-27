@@ -100,8 +100,8 @@ export class TableDetailComponent implements OnInit {
         let a: HttpParams = new HttpParams().set('name', this.name).set('id', this.id);
         this.http.post('http://localhost:6900/table/edit', a).subscribe((data: any) => {
           console.info("i tried");
-          this.router.navigated = false;
-          this.router.navigate([this.router.url]);
+          // not very angular-ish eh?
+          window.location.reload();
         });
 			},
 			(reason) => {

@@ -39,8 +39,8 @@ export class TableViewComponent implements OnInit {
         let a: HttpParams = new HttpParams().set('name', this.name);
         this.http.post('http://localhost:6900/table/create', a).subscribe((data: any) => {
           console.info("i tried");
-          this.router.navigated = false;
-          this.router.navigate([this.router.url]);
+          // not very angular-ish eh?
+          window.location.reload();
         });
 			},
 			(reason) => {
